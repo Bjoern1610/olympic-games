@@ -1,54 +1,59 @@
 package edu.kit.informatik;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import edu.kit.informatik.exceptions.InvalidInputException;
 import edu.kit.informatik.olympia.OlympicGames;
 
 /**
+ * The main class is the entry point of the olympic games administration and
+ * archiving system.
  * 
  * @author Björn Holtvogt
  *
  */
 public final class Main {
 
-    /**
-     * Private constructor to avoid object generation.
-     * 
-     * @deprecated Utility-class constructor.
-     */
-    @Deprecated
-    private Main() {
+	/**
+	 * Reads text from the "standard" input stream, buffering characters so as to
+	 * provide for the efficient reading of characters, arrays, and lines. This
+	 * stream is already open and ready to supply input data and corresponds to
+	 * keyboard input.
+	 */
+	private static final BufferedReader IN = new BufferedReader(new InputStreamReader(System.in));
 
-        throw new AssertionError("Utility class constructor.");
-    }
+	/**
+	 * Private constructor to avoid object generation.
+	 * 
+	 * @deprecated Utility-class constructor.
+	 */
+	@Deprecated
+	private Main() {
 
-    /**
-     * This is the program entry method main.
-     * 
-     * @param args
-     *            Array of strings of the given command line arguments.
-     */
-    public static void main(final String[] args) {
+		throw new AssertionError("Utility class constructor.");
+	}
 
-        OlympicGames olympicGames = new OlympicGames();
-        Command command = null;
-        do {
-            try {
-                command = Command.matchingCommand(Terminal.readLine(), olympicGames);
-            } catch (InvalidInputException invalidInputException) {
-                Terminal.printError(invalidInputException.getMessage());
-            } catch (NumberFormatException numberFormatException) {
-                textOutput("Error, input isn't equal to an integer.");
-            }
-        } while (command == null || command.isRunning());
-    }
+	/**
+	 * This is the program entry method main.
+	 * 
+	 * @param args Array of strings of the given command line arguments.
+	 */
+	public static void main(final String[] args) {
 
-    /**
-     * Communication of the program with the user/s.
-     * 
-     * @param text
-     *            Answer of an command input to the user/s.
-     */
-    public static void textOutput(final String text) {
-
-        Terminal.printLine(text);
-    }
+		OlympicGames olympicGames = new OlympicGames();
+		Command command = null;
+		do {
+			try {
+				command = Command.matchingCommand(IN.readLine(), olympicGames);
+			} catch (InvalidInputException invalidInputException) {
+				olympicGames.output(invalidInputException.getMessage());
+			} catch (NumberFormatException numberFormatException) {
+				olympicGames.output("Error, input isn't equal to an integer.");
+			} catch (IOException ioException) {
+				throw new RuntimeException(ioException);
+			}
+		} while (command == null || command.isRunning());
+	}
 }
