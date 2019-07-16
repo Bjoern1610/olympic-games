@@ -7,6 +7,8 @@ import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 
 /**
+ * This class implements all necessary commands for the olympic games
+ * administration.
  * 
  * @author Björn Holtvogt
  *

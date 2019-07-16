@@ -9,6 +9,8 @@ import java.util.TreeSet;
 import edu.kit.informatik.exceptions.InvalidInputException;
 
 /**
+ * This class processes all administration or archiving interactions from the
+ * user(s) and responds via command line.
  * 
  * @author Björn Holtvogt
  *
