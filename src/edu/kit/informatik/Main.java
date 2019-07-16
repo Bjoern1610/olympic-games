@@ -48,7 +48,7 @@ public final class Main {
 			try {
 				command = Command.matchingCommand(IN.readLine(), olympicGames);
 			} catch (InvalidInputException invalidInputException) {
-				olympicGames.output(invalidInputException.getMessage());
+				olympicGames.output("Error, " + invalidInputException.getMessage());
 			} catch (NumberFormatException numberFormatException) {
 				olympicGames.output("Error, input isn't equal to an integer.");
 			} catch (IOException ioException) {
