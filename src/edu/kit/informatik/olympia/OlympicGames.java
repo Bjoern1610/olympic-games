@@ -41,15 +41,6 @@ public class OlympicGames {
 	}
 
 	/**
-	 * Communication with the user(s) through command line.
-	 * 
-	 * @param text Current answer of a command method.
-	 */
-	public void output(final String text) {
-		System.out.println(text);
-	}
-
-	/**
 	 * Checks for an logged in admin.
 	 * 
 	 * @return True, if an admin is logged in. False, if not.
@@ -161,7 +152,7 @@ public class OlympicGames {
 			sortedVenues.addAll(venueMap.values());
 			for (Venue venue : sortedVenues) {
 				if (venue.getVenueCountry().equals(countryName)) {
-					output("(" + placement + " " + venue.getVenueID() + " " + venue.getLocation() + " "
+					System.out.println("(" + placement + " " + venue.getVenueID() + " " + venue.getLocation() + " "
 							+ venue.getAmountOfSeats() + ")");
 					placement++;
 				}
@@ -189,7 +180,7 @@ public class OlympicGames {
 	public void listOlympicSports() {
 		if (!sportMap.isEmpty()) {
 			for (Sports sport : sportMap.values()) {
-				output(sport.getSport() + " " + sport.getDiscipline());
+				System.out.println(sport.getSport() + " " + sport.getDiscipline());
 			}
 		}
 	}
@@ -229,7 +220,7 @@ public class OlympicGames {
 			Set<IOC> sortedIOC = new TreeSet<IOC>();
 			sortedIOC.addAll(iocMap.values());
 			for (IOC ioc : sortedIOC) {
-				output(ioc.getYearOfDetermination() + " " + ioc.getIocID() + " " + ioc.getIocCode() + " "
+				System.out.println(ioc.getYearOfDetermination() + " " + ioc.getIocID() + " " + ioc.getIocCode() + " "
 						+ ioc.getCountryName());
 			}
 		}
@@ -308,7 +299,7 @@ public class OlympicGames {
 				competingAthletes.addAll(athleteMap.values());
 				for (Athlete athlete : competingAthletes) {
 					if (athlete.isParticipating(wantedSport)) {
-						output(athlete.getAthleteID() + " " + athlete.getForeName() + " " + athlete.getSurName() + " "
+						System.out.println(athlete.getAthleteID() + " " + athlete.getForeName() + " " + athlete.getSurName() + " "
 								+ athlete.getCurrentMedals());
 						athlete.setCurrentMedals(-1);
 					}
@@ -401,7 +392,7 @@ public class OlympicGames {
 			}
 			int placement = 1;
 			for (MedalTableEntry medalTableEntry : medalTable) {
-				output("(" + (placement) + "," + medalTableEntry.getIocID() + "," + medalTableEntry.getIocCode() + ","
+				System.out.println("(" + (placement) + "," + medalTableEntry.getIocID() + "," + medalTableEntry.getIocCode() + ","
 						+ medalTableEntry.getCountryName() + "," + medalTableEntry.getTotalGold() + ","
 						+ medalTableEntry.getTotalSilver() + "," + medalTableEntry.getTotalBronze() + ","
 						+ medalTableEntry.getTotalMedals() + ")");

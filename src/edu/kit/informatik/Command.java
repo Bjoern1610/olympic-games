@@ -28,7 +28,7 @@ public enum Command {
 				String surName = matcher.group(2);
 				String userName = matcher.group(3);
 				String passWord = matcher.group(4);
-				olympicGames.output(olympicGames.addAdmin(foreName, surName, userName, passWord));
+				System.out.println(olympicGames.addAdmin(foreName, surName, userName, passWord));
 			} else {
 				throw new InvalidInputException("unexecutable, if an admin is logged in.");
 			}
@@ -47,7 +47,7 @@ public enum Command {
 			if (!olympicGames.isLoggedIn()) {
 				String userName = matcher.group(1);
 				String passWord = matcher.group(2);
-				olympicGames.output(olympicGames.loginAdmin(userName, passWord));
+				System.out.println(olympicGames.loginAdmin(userName, passWord));
 			} else {
 				throw new InvalidInputException("unexecutable, if an admin is logged in.");
 			}
@@ -63,7 +63,7 @@ public enum Command {
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
 
-			olympicGames.output(olympicGames.logoutAdmin());
+			System.out.println(olympicGames.logoutAdmin());
 		}
 	},
 
@@ -86,7 +86,7 @@ public enum Command {
 				String venueName = matcher.group(4);
 				int yearOfOpening = Integer.parseInt(matcher.group(5));
 				int amountOfSeats = Integer.parseInt(matcher.group(6));
-				olympicGames.output(olympicGames.addSportsVenue(venueID, countryName, location, venueName,
+				System.out.println(olympicGames.addSportsVenue(venueID, countryName, location, venueName,
 						yearOfOpening, amountOfSeats));
 			} else {
 				throw new InvalidInputException("unexecutable, if no admin is logged in.");
@@ -124,7 +124,7 @@ public enum Command {
 			if (olympicGames.isLoggedIn()) {
 				String sport = matcher.group(1);
 				String discipline = matcher.group(2);
-				olympicGames.output(olympicGames.addOlympicSport(sport, discipline));
+				System.out.println(olympicGames.addOlympicSport(sport, discipline));
 			} else {
 				throw new InvalidInputException("unexecutable, if no admin is logged in.");
 			}
@@ -164,7 +164,7 @@ public enum Command {
 				String iocCode = matcher.group(2);
 				String countryName = matcher.group(3);
 				String yearOfDetermination = matcher.group(4);
-				olympicGames.output(olympicGames.addIocCode(iocID, iocCode, countryName, yearOfDetermination));
+				System.out.println(olympicGames.addIocCode(iocID, iocCode, countryName, yearOfDetermination));
 			} else {
 				throw new InvalidInputException("unexecutable, if no admin is logged in.");
 			}
@@ -207,8 +207,7 @@ public enum Command {
 				String countryOfOrigin = matcher.group(4);
 				String sport = matcher.group(5);
 				String discipline = matcher.group(6);
-				olympicGames.output(
-						olympicGames.addAthlete(athleteID, foreName, surName, countryOfOrigin, sport, discipline));
+				System.out.println(olympicGames.addAthlete(athleteID, foreName, surName, countryOfOrigin, sport, discipline));
 			} else {
 				throw new InvalidInputException("unexecutable, if no admin is logged in.");
 			}
@@ -255,7 +254,7 @@ public enum Command {
 				int gold = Integer.parseInt(matcher.group(6));
 				int silver = Integer.parseInt(matcher.group(7));
 				int bronze = Integer.parseInt(matcher.group(8));
-				olympicGames.output(olympicGames.addCompetition(athleteID, participationYear, countryName, sport,
+				System.out.println(olympicGames.addCompetition(athleteID, participationYear, countryName, sport,
 						discipline, gold, silver, bronze));
 			} else {
 				throw new InvalidInputException("unexecutable, if no admin is logged in.");
@@ -291,7 +290,7 @@ public enum Command {
 				throws InvalidInputException {
 
 			if (olympicGames.isLoggedIn()) {
-				olympicGames.output(olympicGames.reset());
+				System.out.println(olympicGames.reset());
 			} else {
 				throw new InvalidInputException("unexecutable, if no admin is logged in.");
 			}
