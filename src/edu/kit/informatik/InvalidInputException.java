@@ -1,10 +1,10 @@
-package edu.kit.informatik.exceptions;
+package edu.kit.informatik;
 
 /**
  * This exception is to be thrown when the user enters invalid input to the
  * command line.
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public class InvalidInputException extends Exception {

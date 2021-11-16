@@ -4,14 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import edu.kit.informatik.exceptions.InvalidInputException;
 import edu.kit.informatik.olympia.OlympicGames;
 
 /**
  * The main class is the entry point of the olympic games administration and
  * archiving system.
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public final class Main {

@@ -6,13 +6,13 @@ import java.util.TreeMap;
 import java.util.Set;
 import java.util.TreeSet;
 
-import edu.kit.informatik.exceptions.InvalidInputException;
+import edu.kit.informatik.InvalidInputException;
 
 /**
  * This class processes all administration or archiving interactions from the
  * user(s) and responds via command line.
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public class OlympicGames {

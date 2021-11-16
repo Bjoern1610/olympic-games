@@ -1,6 +1,5 @@
 package edu.kit.informatik;
 
-import edu.kit.informatik.exceptions.InvalidInputException;
 import edu.kit.informatik.olympia.OlympicGames;
 import java.util.regex.Pattern;
 import java.util.regex.MatchResult;
@@ -10,7 +9,7 @@ import java.util.regex.Matcher;
  * This class implements all necessary commands for the olympic games
  * administration.
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public enum Command {
