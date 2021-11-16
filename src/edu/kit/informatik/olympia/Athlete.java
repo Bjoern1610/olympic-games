@@ -12,6 +12,11 @@ import java.util.Set;
  */
 public class Athlete implements Comparable<Athlete> {
 
+    private final IOC countryOfOrigin;
+    private final Set<Integer> participatedYears;
+    private final Map<Sports, Set<Integer>> participatedSports;
+    private final Map<Sports, Integer> medalTable;
+
     private String athleteID;
     private String foreName;
     private String surName;
@@ -19,10 +24,6 @@ public class Athlete implements Comparable<Athlete> {
     private int silverMedal;
     private int bronzeMedal;
     private int currentMedals;
-    private IOC countryOfOrigin;
-    private Set<Integer> participatedYears;
-    private Map<Sports, Set<Integer>> participatedSports;
-    private Map<Sports, Integer> medalTable;
 
     /**
      * Creates an athlete profile who can participate and compete at various sports.

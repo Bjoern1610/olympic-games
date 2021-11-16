@@ -12,21 +12,20 @@ import java.util.*;
  */
 public class OlympicGames {
 
-    private final short olympicBegin = 1926;
+    private static final int OLYMPIC_BEGIN = 1926;
+    private static final int CURRENT_OLYMPIC_YEAR = 2018;
 
-    private int currentOlympicYear;
-    private Map<String, Administrator> adminMap;
-    private Map<String, IOC> iocMap;
-    private Map<String, Venue> venueMap;
-    private Map<Sports, Sports> sportMap;
-    private Map<String, Athlete> athleteMap;
-    private Set<MedalTableEntry> medalTable;
+    private final Map<String, Administrator> adminMap;
+    private final Map<String, IOC> iocMap;
+    private final Map<String, Venue> venueMap;
+    private final Map<Sports, Sports> sportMap;
+    private final Map<String, Athlete> athleteMap;
+    private final Set<MedalTableEntry> medalTable;
 
     /**
      * Creates an Olympic Games management and archiving system.
      */
     public OlympicGames() {
-        this.currentOlympicYear = 2018;
         this.adminMap = new HashMap<>();
         this.iocMap = new TreeMap<>();
         this.venueMap = new HashMap<>();
@@ -143,8 +142,7 @@ public class OlympicGames {
             throw new InvalidInputException("country has no associated IOC code.");
         } else if (matchingIOC && !venueMap.isEmpty()) {
             int placement = 1;
-            Set<Venue> sortedVenues = new TreeSet<Venue>();
-            sortedVenues.addAll(venueMap.values());
+            Set<Venue> sortedVenues = new TreeSet<>(venueMap.values());
             for (Venue venue : sortedVenues) {
                 if (venue.getVenueCountry().equals(countryName)) {
                     System.out.println("(" + placement + " " + venue.getVenueID() + " " + venue.getLocation() + " "
@@ -212,8 +210,7 @@ public class OlympicGames {
      */
     public void listIocCodes() {
         if (!iocMap.isEmpty()) {
-            Set<IOC> sortedIOC = new TreeSet<IOC>();
-            sortedIOC.addAll(iocMap.values());
+            Set<IOC> sortedIOC = new TreeSet<>(iocMap.values());
             for (IOC ioc : sortedIOC) {
                 System.out.println(ioc.getYearOfDetermination() + " " + ioc.getIocID() + " " + ioc.getIocCode() + " "
                         + ioc.getCountryName());
@@ -266,7 +263,7 @@ public class OlympicGames {
             Athlete newAthlete = new Athlete(athleteID, foreName, surName, iocMap.get(countryOfOrigin), sportReference);
             // Doesn't trigger an error, if no athlete has been added yet
             return addElement(athleteMap, athleteID, newAthlete, "athlete forename, surname or country of origin is " +
-					"invalid.");
+                    "invalid.");
         }
         throw new InvalidInputException("not existing IOC or sport.");
     }
@@ -291,8 +288,7 @@ public class OlympicGames {
                         athlete.setCurrentMedals(athlete.getSportsMedals(wantedSport));
                     }
                 }
-                Set<Athlete> competingAthletes = new TreeSet<Athlete>();
-                competingAthletes.addAll(athleteMap.values());
+                Set<Athlete> competingAthletes = new TreeSet<>(athleteMap.values());
                 for (Athlete athlete : competingAthletes) {
                     if (athlete.isParticipating(wantedSport)) {
                         System.out.println(athlete.getAthleteID() + " " + athlete.getForeName() + " " + athlete.getSurName() + " "
@@ -425,10 +421,10 @@ public class OlympicGames {
 
     private boolean olympicTurnus(IOC country, int year) {
         // No competition can take place before an IOC has been determined
-        boolean afterIOC = Integer.valueOf(country.getYearOfDetermination()) <= year;
+        boolean afterIOC = Integer.parseInt(country.getYearOfDetermination()) <= year;
         // Every 4th year after 1926
-        boolean turnus = (((year - olympicBegin) % 4) == 0);
-        if (year >= olympicBegin && year <= currentOlympicYear && turnus && afterIOC) {
+        boolean turnus = (((year - OLYMPIC_BEGIN) % 4) == 0);
+        if (year >= OLYMPIC_BEGIN && year <= CURRENT_OLYMPIC_YEAR && turnus && afterIOC) {
             return true;
         }
         return false;

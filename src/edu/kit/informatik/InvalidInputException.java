@@ -1,5 +1,7 @@
 package edu.kit.informatik;
 
+import java.io.Serial;
+
 /**
  * This exception is to be thrown when the user enters invalid input to the
  * command line.
@@ -8,6 +10,7 @@ package edu.kit.informatik;
  */
 public class InvalidInputException extends Exception {
 
+    @Serial
     private static final long serialVersionUID = 8514003408497704829L;
 
     /**

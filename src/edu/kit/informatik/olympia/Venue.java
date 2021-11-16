@@ -7,8 +7,9 @@ package edu.kit.informatik.olympia;
  */
 public class Venue implements Comparable<Venue> {
 
+    private final IOC country;
+
     private String venueID;
-    private IOC country;
     private String location;
     private String venueName;
     private int yearOfOpening;

@@ -7,7 +7,8 @@ package edu.kit.informatik.olympia;
  */
 public class MedalTableEntry implements Comparable<MedalTableEntry> {
 
-    private IOC country;
+    private final IOC country;
+
     private int totalGold;
     private int totalSilver;
     private int totalBronze;
