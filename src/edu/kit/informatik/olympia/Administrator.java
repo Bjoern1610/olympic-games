@@ -23,7 +23,6 @@ public class Administrator {
 	 * @param passWord Password for the admin's account.
 	 */
 	public Administrator(final String foreName, final String surName, final String userName, final String passWord) {
-
 		this.foreName = foreName;
 		this.surName = surName;
 		this.userName = userName;
@@ -36,7 +35,6 @@ public class Administrator {
 	 * @return Forename of an admin.
 	 */
 	public String getForeName() {
-
 		return foreName;
 	}
 
@@ -46,7 +44,6 @@ public class Administrator {
 	 * @param forName Forename of an admin.
 	 */
 	public void setForeName(final String forName) {
-
 		this.foreName = forName;
 	}
 
@@ -56,7 +53,6 @@ public class Administrator {
 	 * @return Surname of an admin.
 	 */
 	public String getSurName() {
-
 		return surName;
 	}
 
@@ -66,7 +62,6 @@ public class Administrator {
 	 * @param surName Surname of an admin.
 	 */
 	public void setSurName(final String surName) {
-
 		this.surName = surName;
 	}
 
@@ -76,7 +71,6 @@ public class Administrator {
 	 * @return User name of an admin.
 	 */
 	public String getUserName() {
-
 		return userName;
 	}
 
@@ -86,7 +80,6 @@ public class Administrator {
 	 * @param userName User name of an admin.
 	 */
 	public void setUserName(final String userName) {
-
 		this.userName = userName;
 	}
 
@@ -96,7 +89,6 @@ public class Administrator {
 	 * @return Password of an admin account.
 	 */
 	public String getPassWord() {
-
 		return passWord;
 	}
 
@@ -106,7 +98,6 @@ public class Administrator {
 	 * @param passWord Password of an admin.
 	 */
 	public void setPassWord(final String passWord) {
-
 		this.passWord = passWord;
 	}
 
@@ -116,7 +107,6 @@ public class Administrator {
 	 * @return True, if the admin is online. False, if not.
 	 */
 	public boolean isOnline() {
-
 		return online;
 	}
 
@@ -126,13 +116,11 @@ public class Administrator {
 	 * @param online Online state of an admin account.
 	 */
 	public void setOnline(final boolean online) {
-
 		this.online = online;
 	}
 
 	@Override
 	public int hashCode() {
-
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
@@ -141,7 +129,6 @@ public class Administrator {
 
 	@Override
 	public boolean equals(final Object obj) {
-
 		if (this == obj)
 			return true;
 		if (obj == null)
