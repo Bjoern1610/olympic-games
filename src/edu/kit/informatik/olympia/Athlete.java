@@ -8,7 +8,7 @@ import java.util.HashSet;
 /**
  * This class represents an athlete who participates in the Olympic Games.
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public class Athlete implements Comparable<Athlete> {
@@ -55,7 +55,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @return Athlete ID.
 	 */
 	public String getAthleteID() {
-
 		return athleteID;
 	}
 
@@ -65,7 +64,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @param athleteID Unique athlete ID.
 	 */
 	public void setAthleteID(final String athleteID) {
-
 		this.athleteID = athleteID;
 	}
 
@@ -75,7 +73,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @return Forename of an athlete.
 	 */
 	public String getForeName() {
-
 		return foreName;
 	}
 
@@ -85,7 +82,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @param foreName Forename of an athlete.
 	 */
 	public void setForeName(final String foreName) {
-
 		this.foreName = foreName;
 	}
 
@@ -95,7 +91,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @return Surname of an athlete.
 	 */
 	public String getSurName() {
-
 		return surName;
 	}
 
@@ -105,7 +100,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @param surName Surname of an athlete.
 	 */
 	public void setSurName(final String surName) {
-
 		this.surName = surName;
 	}
 
@@ -115,7 +109,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @return Athlete's received gold medals.
 	 */
 	public int getGoldMedal() {
-
 		return goldMedal;
 	}
 
@@ -125,7 +118,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @param goldMedal Amount of received gold medals.
 	 */
 	public void setGoldMedal(final int goldMedal) {
-
 		this.goldMedal = goldMedal;
 	}
 
@@ -135,7 +127,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @return Athlete's received silver medals.
 	 */
 	public int getSilverMedal() {
-
 		return silverMedal;
 	}
 
@@ -155,7 +146,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @return Athlete's received bronze medals.
 	 */
 	public int getBronzeMedal() {
-
 		return bronzeMedal;
 	}
 
@@ -165,7 +155,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @param bronzeMedal Amount of received bronze medals.
 	 */
 	public void setBronzeMedal(final int bronzeMedal) {
-
 		this.bronzeMedal = bronzeMedal;
 	}
 
@@ -175,7 +164,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @return Athlete's country of origin.
 	 */
 	public String getCountryOfOrigin() {
-
 		return countryOfOrigin.getCountryName();
 	}
 
@@ -185,7 +173,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @return Current amount of received medals of a certain sport.
 	 */
 	public int getCurrentMedals() {
-
 		return currentMedals;
 	}
 
@@ -195,7 +182,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @param currentMedals Current amount of received medals of a certain sport.
 	 */
 	public void setCurrentMedals(final int currentMedals) {
-
 		this.currentMedals = currentMedals;
 	}
 
@@ -206,7 +192,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @return Amount of received medals dependent on the sport.
 	 */
 	public int getSportsMedals(final Sports sport) {
-
 		return medalTable.get(sport);
 	}
 
@@ -218,7 +203,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @param sportsMedals New amount of received medals.
 	 */
 	public void setSportsMedal(final Sports sport, final int sportsMedals) {
-
 		medalTable.put(sport, sportsMedals);
 	}
 
@@ -228,7 +212,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @param otherSport Sport from which the athlete wants to participate.
 	 */
 	public void participates(final Sports otherSport) {
-
 		Set<Integer> newYearSet = new HashSet<>();
 		this.participatedSports.put(otherSport, newYearSet);
 	}
@@ -242,7 +225,6 @@ public class Athlete implements Comparable<Athlete> {
 	 *         if not.
 	 */
 	public boolean isParticipating(final Sports otherSport) {
-
 		return participatedSports.containsKey(otherSport);
 	}
 
@@ -254,7 +236,6 @@ public class Athlete implements Comparable<Athlete> {
 	 * @param newYear Year in which the athlete has competed.
 	 */
 	public void competes(final Sports sport, final int newYear) {
-
 		Set<Integer> addedYearSet = new HashSet<>();
 		addedYearSet.addAll(participatedYears);
 		addedYearSet.add(newYear);
@@ -271,13 +252,11 @@ public class Athlete implements Comparable<Athlete> {
 	 *         year. False, if not.
 	 */
 	public boolean hasCompeted(final Sports sport, final int year) {
-
 		return participatedSports.get(sport).contains(year);
 	}
 
 	@Override
 	public int compareTo(final Athlete athlete) {
-
 		if (this.getCurrentMedals() > athlete.getCurrentMedals()) {
 			return -1;
 		} else if (this.getCurrentMedals() < athlete.getCurrentMedals()) {
@@ -295,7 +274,6 @@ public class Athlete implements Comparable<Athlete> {
 
 	@Override
 	public int hashCode() {
-
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((athleteID == null) ? 0 : athleteID.hashCode());
@@ -304,7 +282,6 @@ public class Athlete implements Comparable<Athlete> {
 
 	@Override
 	public boolean equals(final Object obj) {
-
 		if (this == obj)
 			return true;
 		if (obj == null)

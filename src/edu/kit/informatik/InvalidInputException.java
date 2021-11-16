@@ -17,7 +17,6 @@ public class InvalidInputException extends Exception {
 	 * @param errorMessage Matching message to an invalid input.
 	 */
 	public InvalidInputException(final String errorMessage) {
-
 		super(errorMessage);
 	}
 }

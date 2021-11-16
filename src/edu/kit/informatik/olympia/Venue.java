@@ -3,7 +3,7 @@ package edu.kit.informatik.olympia;
 /**
  * This class represents a sports venue.
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public class Venue implements Comparable<Venue> {
@@ -44,7 +44,6 @@ public class Venue implements Comparable<Venue> {
 	 * @return Venue ID.
 	 */
 	public String getVenueID() {
-
 		return venueID;
 	}
 
@@ -54,7 +53,6 @@ public class Venue implements Comparable<Venue> {
 	 * @param venueID Unique venue ID.
 	 */
 	public void setVenueID(final String venueID) {
-
 		this.venueID = venueID;
 	}
 
@@ -64,7 +62,6 @@ public class Venue implements Comparable<Venue> {
 	 * @return Country in which the venue is located.
 	 */
 	public String getVenueCountry() {
-
 		return country.getCountryName();
 	}
 
@@ -74,7 +71,6 @@ public class Venue implements Comparable<Venue> {
 	 * @return City/village in which the venue is located.
 	 */
 	public String getLocation() {
-
 		return location;
 	}
 
@@ -84,7 +80,6 @@ public class Venue implements Comparable<Venue> {
 	 * @param location City/village in which the venue is located.
 	 */
 	public void setLocation(final String location) {
-
 		this.location = location;
 	}
 
@@ -94,7 +89,6 @@ public class Venue implements Comparable<Venue> {
 	 * @return Venue name.
 	 */
 	public String getVenueName() {
-
 		return venueName;
 	}
 
@@ -104,7 +98,6 @@ public class Venue implements Comparable<Venue> {
 	 * @param venueName Name of a venue.
 	 */
 	public void setVenueName(final String venueName) {
-
 		this.venueName = venueName;
 	}
 
@@ -114,7 +107,6 @@ public class Venue implements Comparable<Venue> {
 	 * @return Opening year of the sports venue.
 	 */
 	public int getYearOfOpening() {
-
 		return yearOfOpening;
 	}
 
@@ -124,7 +116,6 @@ public class Venue implements Comparable<Venue> {
 	 * @param yearOfOpening Opening year of the sports venue.
 	 */
 	public void setYearOfOpening(final int yearOfOpening) {
-
 		this.yearOfOpening = yearOfOpening;
 	}
 
@@ -134,7 +125,6 @@ public class Venue implements Comparable<Venue> {
 	 * @return Amount of seats of a venue.
 	 */
 	public int getAmountOfSeats() {
-
 		return amountOfSeats;
 	}
 
@@ -144,13 +134,11 @@ public class Venue implements Comparable<Venue> {
 	 * @param amountOfSeats Amount of seats of a venue.
 	 */
 	public void setAmountOfSeats(final int amountOfSeats) {
-
 		this.amountOfSeats = amountOfSeats;
 	}
 
 	@Override
 	public int compareTo(final Venue venue) {
-
 		if (this.getAmountOfSeats() > venue.getAmountOfSeats()) {
 			return 1;
 		} else if (this.getAmountOfSeats() < venue.getAmountOfSeats()) {
@@ -168,7 +156,6 @@ public class Venue implements Comparable<Venue> {
 
 	@Override
 	public int hashCode() {
-
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((venueID == null) ? 0 : venueID.hashCode());
@@ -177,7 +164,6 @@ public class Venue implements Comparable<Venue> {
 
 	@Override
 	public boolean equals(final Object obj) {
-
 		if (this == obj)
 			return true;
 		if (obj == null)

@@ -19,7 +19,6 @@ public enum Command {
 	 */
 	// add-admin <forename>;<surname>;<username>;<password>
 	CMD_ADD_ADMIN("add-admin ([^;]+);([^;]+);([^;]{4,8});([^;]{8,12})") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -41,7 +40,6 @@ public enum Command {
 	 */
 	// login-admin <username>;<password>
 	CMD_LOGIN_ADMIN("login-admin ([^;]{4,8});([^;]{8,12})") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -61,7 +59,6 @@ public enum Command {
 	 */
 	// logout-admin
 	CMD_LOGOUT_ADMIN("logout-admin") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -102,7 +99,6 @@ public enum Command {
 	 */
 	// list-sports-venues <country name>
 	CMD_LIST_SPORTS_VENUES("list-sports-venues ([^;]+)") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -121,7 +117,6 @@ public enum Command {
 	 */
 	// add-olympic-sport <kind of sport>;<sport discipline>
 	CMD_ADD_OLYMPIC_SPORT("add-olympic-sport ([^;]+);([^;]+)") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -141,7 +136,6 @@ public enum Command {
 	 */
 	// list-olympic-sports
 	CMD_LIST_OLYMPIC_SPORTS("list-olympic-sports") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -182,7 +176,6 @@ public enum Command {
 	 */
 	// list-ioc-codes
 	CMD_LIST_IOC_CODES("list-ioc-codes") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -227,7 +220,6 @@ public enum Command {
 	 */
 	// summary-athletes <kind of sport>;<sport discipline>
 	CMD_SUMMARY_ATHLETES("summary-athletes ([^;]+);([^;]+)") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -276,7 +268,6 @@ public enum Command {
 	 */
 	// olympic-medal-table
 	CMD_OLYMPIC_MEDAL_TABLE("olympic-medal-table") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -312,7 +303,6 @@ public enum Command {
 	 */
 	// quit
 	CMD_QUIT("quit") {
-
 		@Override
 		public void commandMethod(final MatchResult matcher, final OlympicGames olympicGames)
 				throws InvalidInputException {
@@ -330,7 +320,6 @@ public enum Command {
 	 * @param regex Regular expression for the command.
 	 */
 	Command(final String regex) {
-
 		this.pattern = Pattern.compile(regex);
 	}
 
@@ -374,7 +363,6 @@ public enum Command {
 	 *         user wants to quit the game by the command quit.
 	 */
 	public boolean isRunning() {
-
 		return running;
 	}
 }

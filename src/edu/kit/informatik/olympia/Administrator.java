@@ -3,7 +3,7 @@ package edu.kit.informatik.olympia;
 /**
  * This class represents an administrator who can manage and archive records.
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public class Administrator {

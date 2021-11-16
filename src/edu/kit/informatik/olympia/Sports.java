@@ -3,7 +3,7 @@ package edu.kit.informatik.olympia;
 /**
  * This class represents a given sport with its discipline as a tuple.
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public class Sports implements Comparable<Sports> {
@@ -19,7 +19,6 @@ public class Sports implements Comparable<Sports> {
 	 * @param discipline Discipline of the sport.
 	 */
 	public Sports(final String sport, final String discipline) {
-
 		this.sport = sport;
 		this.discipline = discipline;
 	}
@@ -30,7 +29,6 @@ public class Sports implements Comparable<Sports> {
 	 * @return Name of the sport.
 	 */
 	public String getSport() {
-
 		return sport;
 	}
 
@@ -40,7 +38,6 @@ public class Sports implements Comparable<Sports> {
 	 * @param sport Name of the sport.
 	 */
 	public void setSport(final String sport) {
-
 		this.sport = sport;
 	}
 
@@ -50,7 +47,6 @@ public class Sports implements Comparable<Sports> {
 	 * @return Discipline of the sport.
 	 */
 	public String getDiscipline() {
-
 		return discipline;
 	}
 
@@ -60,13 +56,11 @@ public class Sports implements Comparable<Sports> {
 	 * @param discipline Discipline of the sport.
 	 */
 	public void setDiscipline(final String discipline) {
-
 		this.discipline = discipline;
 	}
 
 	@Override
 	public int compareTo(final Sports sport) {
-
 		if (this.getSport().compareTo(sport.getSport()) < 0) {
 			return -1;
 		} else if (this.getSport().compareTo(sport.getSport()) > 0) {
@@ -84,7 +78,6 @@ public class Sports implements Comparable<Sports> {
 
 	@Override
 	public int hashCode() {
-
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((sport == null) ? 0 : sport.hashCode());
@@ -94,7 +87,6 @@ public class Sports implements Comparable<Sports> {
 
 	@Override
 	public boolean equals(final Object obj) {
-
 		if (this == obj)
 			return true;
 		if (obj == null)

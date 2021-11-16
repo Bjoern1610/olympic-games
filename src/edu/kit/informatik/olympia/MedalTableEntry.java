@@ -3,7 +3,7 @@ package edu.kit.informatik.olympia;
 /**
  * This class represents an entry for the overall medal table.
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public class MedalTableEntry implements Comparable<MedalTableEntry> {
@@ -24,7 +24,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @param totalBronze Total amount of bronze medals for a country.
 	 */
 	public MedalTableEntry(final IOC country, final int totalGold, final int totalSilver, final int totalBronze) {
-
 		this.country = country;
 		this.totalGold = totalGold;
 		this.totalSilver = totalSilver;
@@ -39,7 +38,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @return IOC ID.
 	 */
 	public String getIocID() {
-
 		return country.getIocID();
 	}
 
@@ -49,7 +47,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @return IOC code.
 	 */
 	public String getIocCode() {
-
 		return country.getIocCode();
 	}
 
@@ -59,7 +56,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @return Country name.
 	 */
 	public String getCountryName() {
-
 		return country.getCountryName();
 	}
 
@@ -69,7 +65,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @return Total amount of gold medals.
 	 */
 	public int getTotalGold() {
-
 		return totalGold;
 	}
 
@@ -79,7 +74,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @param totalGold Total amount of gold medals.
 	 */
 	public void setTotalGold(final int totalGold) {
-
 		this.totalGold = totalGold;
 	}
 
@@ -89,7 +83,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @return Total amount of silver medals.
 	 */
 	public int getTotalSilver() {
-
 		return totalSilver;
 	}
 
@@ -99,7 +92,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @param totalSilver Total amount of silver medals.
 	 */
 	public void setTotalSilver(final int totalSilver) {
-
 		this.totalSilver = totalSilver;
 	}
 
@@ -109,7 +101,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @return Total amount of bronze medals.
 	 */
 	public int getTotalBronze() {
-
 		return totalBronze;
 	}
 
@@ -119,7 +110,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @param totalBronze Total amount of bronze medals.
 	 */
 	public void setTotalBronze(final int totalBronze) {
-
 		this.totalBronze = totalBronze;
 	}
 
@@ -129,7 +119,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @return Total amount of all received medals.
 	 */
 	public int getTotalMedals() {
-
 		return totalMedals;
 	}
 
@@ -139,13 +128,11 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 	 * @param totalMedals Total amount of all received medals.
 	 */
 	public void setTotalMedals(final int totalMedals) {
-
 		this.totalMedals = totalMedals;
 	}
 
 	@Override
 	public int compareTo(final MedalTableEntry medalTableEntry) {
-
 		if (this.getTotalGold() < medalTableEntry.getTotalGold()) {
 			return 1;
 		} else if (this.getTotalGold() > medalTableEntry.getTotalGold()) {
@@ -175,7 +162,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 
 	@Override
 	public int hashCode() {
-
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((country == null) ? 0 : country.hashCode());
@@ -184,7 +170,6 @@ public class MedalTableEntry implements Comparable<MedalTableEntry> {
 
 	@Override
 	public boolean equals(final Object obj) {
-
 		if (this == obj)
 			return true;
 		if (obj == null)

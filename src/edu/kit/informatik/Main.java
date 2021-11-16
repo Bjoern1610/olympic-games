@@ -30,7 +30,6 @@ public final class Main {
 	 */
 	@Deprecated
 	private Main() {
-
 		throw new AssertionError("Utility class constructor.");
 	}
 
@@ -40,7 +39,6 @@ public final class Main {
 	 * @param args Array of strings of the given command line arguments.
 	 */
 	public static void main(final String[] args) {
-
 		OlympicGames olympicGames = new OlympicGames();
 		Command command = null;
 		do {

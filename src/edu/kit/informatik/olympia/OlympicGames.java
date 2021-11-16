@@ -18,6 +18,7 @@ import edu.kit.informatik.InvalidInputException;
 public class OlympicGames {
 
 	private final short olympicBegin = 1926;
+
 	private int currentOlympicYear;
 	private Map<String, Administrator> adminMap;
 	private Map<String, IOC> iocMap;
@@ -30,7 +31,6 @@ public class OlympicGames {
 	 * Creates an Olympic Games management and archiving system.
 	 */
 	public OlympicGames() {
-
 		this.currentOlympicYear = 2018;
 		this.adminMap = new HashMap<>();
 		this.iocMap = new TreeMap<>();
@@ -46,7 +46,6 @@ public class OlympicGames {
 	 * @param text Current answer of a command method.
 	 */
 	public void output(final String text) {
-
 		System.out.println(text);
 	}
 
@@ -56,7 +55,6 @@ public class OlympicGames {
 	 * @return True, if an admin is logged in. False, if not.
 	 */
 	public boolean isLoggedIn() {
-
 		for (Administrator administrator : adminMap.values()) {
 			if (administrator.isOnline()) {
 				return true;
@@ -92,7 +90,6 @@ public class OlympicGames {
 	 * @throws InvalidInputException if any of the given parameters are invalid.
 	 */
 	public String loginAdmin(String userName, String passWord) throws InvalidInputException {
-
 		if (adminMap.get(userName) != null && adminMap.get(userName).getPassWord().equals(passWord)) {
 			adminMap.get(userName).setOnline(true);
 			return "OK";
@@ -110,7 +107,6 @@ public class OlympicGames {
 	 *                               was executed.
 	 */
 	public String logoutAdmin() throws InvalidInputException {
-
 		for (Administrator administrator : adminMap.values()) {
 			if (administrator.isOnline()) {
 				administrator.setOnline(false);
@@ -156,7 +152,6 @@ public class OlympicGames {
 	 *                               associated IOC code.
 	 */
 	public void listSportsVenues(String countryName) throws InvalidInputException {
-
 		boolean matchingIOC = iocMap.containsKey(countryName);
 		if (!matchingIOC) {
 			throw new InvalidInputException("country has no associated IOC code.");
@@ -184,7 +179,6 @@ public class OlympicGames {
 	 * @throws InvalidInputException if the given sport tuple already exists.
 	 */
 	public String addOlympicSport(String sport, String discipline) throws InvalidInputException {
-
 		Sports newSport = new Sports(sport, discipline);
 		return addElement(sportMap, newSport, newSport, "sport and discipline already exists.");
 	}
@@ -193,7 +187,6 @@ public class OlympicGames {
 	 * Lists the sports and sports disciplines in alphabetic order.
 	 */
 	public void listOlympicSports() {
-
 		if (!sportMap.isEmpty()) {
 			for (Sports sport : sportMap.values()) {
 				output(sport.getSport() + " " + sport.getDiscipline());
@@ -216,15 +209,13 @@ public class OlympicGames {
 			throws InvalidInputException {
 
 		IOC newIOC = new IOC(iocID, iocCode, countryName, yearOfDetermination);
-		// Check if element exists, so that the subsequent addition can no longer
-		// trigger an error
+		// Check if element exists, so that the subsequent addition can no longer trigger an error
 		for (IOC ioc : iocMap.values()) {
 			if (ioc.equals(newIOC)) {
 				throw new InvalidInputException("IOC already exists.");
 			}
 		}
-		// Country name as key because it is the most queried attribute and should also
-		// be unique
+		// Country name as key because it's the most queried attribute and should also be unique
 		return addElement(iocMap, countryName, new IOC(iocID, iocCode, countryName, yearOfDetermination), "");
 	}
 
@@ -234,7 +225,6 @@ public class OlympicGames {
 	 * ascending order.
 	 */
 	public void listIocCodes() {
-
 		if (!iocMap.isEmpty()) {
 			Set<IOC> sortedIOC = new TreeSet<IOC>();
 			sortedIOC.addAll(iocMap.values());
@@ -273,8 +263,7 @@ public class OlympicGames {
 		boolean matchingSport = sportMap.containsKey(sportReference);
 		if (matchingIOC && matchingSport) {
 			if (!athleteMap.isEmpty()) {
-				// Athlete's characteristics such as ID, forename, surname, country of origin
-				// already exist
+				// Athlete's characteristics such as ID, forename, surname, country of origin already exist
 				if (athleteMap.containsKey(athleteID) && athleteMap.get(athleteID).getForeName().equals(foreName)
 						&& athleteMap.get(athleteID).getSurName().equals(surName)
 						&& athleteMap.get(athleteID).getCountryOfOrigin().equals(countryOfOrigin)) {
@@ -290,8 +279,7 @@ public class OlympicGames {
 			}
 			Athlete newAthlete = new Athlete(athleteID, foreName, surName, iocMap.get(countryOfOrigin), sportReference);
 			// Doesn't trigger an error, if no athlete has been added yet
-			return addElement(athleteMap, athleteID, newAthlete,
-					"athlete forename, surname or country of origin is invalid.");
+			return addElement(athleteMap, athleteID, newAthlete, "athlete forename, surname or country of origin is invalid.");
 		}
 		throw new InvalidInputException("not existing IOC or sport.");
 	}
@@ -307,7 +295,6 @@ public class OlympicGames {
 	 * @throws InvalidInputException if the given sport tuple doesn't exist.
 	 */
 	public void summaryAthlete(String sport, String discipline) throws InvalidInputException {
-
 		Sports wantedSport = new Sports(sport, discipline);
 		if (sportMap.containsKey(wantedSport)) {
 			if (!athleteMap.isEmpty()) {
@@ -396,7 +383,6 @@ public class OlympicGames {
 	 * according to the IOC ID.
 	 */
 	public void olympicMedalTable() {
-
 		if (!iocMap.isEmpty()) {
 			for (IOC ioc : iocMap.values()) {
 				int totalGold = 0;
@@ -432,7 +418,6 @@ public class OlympicGames {
 	 * @return OK, if the reset was successfully executed.
 	 */
 	public String reset() {
-
 		iocMap.clear();
 		venueMap.clear();
 		sportMap.clear();
@@ -442,7 +427,6 @@ public class OlympicGames {
 	}
 
 	private <K, V> String addElement(Map<K, V> map, K key, V value, String errorMessage) throws InvalidInputException {
-
 		// Doesn't allow duplicates
 		if (map.containsKey(key)) {
 			throw new InvalidInputException(errorMessage);
@@ -453,7 +437,6 @@ public class OlympicGames {
 	}
 
 	private boolean olympicTurnus(IOC country, int year) {
-
 		// No competition can take place before an IOC has been determined
 		boolean afterIOC = Integer.valueOf(country.getYearOfDetermination()) <= year;
 		// Every 4th year after 1926
@@ -465,7 +448,6 @@ public class OlympicGames {
 	}
 
 	private void refreshMedals(Athlete refreshedAthlete, Sports sport, int gold, int silver, int bronze) {
-
 		refreshedAthlete.setGoldMedal(refreshedAthlete.getGoldMedal() + gold);
 		refreshedAthlete.setSilverMedal(refreshedAthlete.getSilverMedal() + silver);
 		refreshedAthlete.setBronzeMedal(refreshedAthlete.getBronzeMedal() + bronze);

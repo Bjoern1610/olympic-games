@@ -4,7 +4,7 @@ package edu.kit.informatik.olympia;
  * This class represents a unique country code determined by the International
  * Olympic Committee (IOC).
  * 
- * @author Björn Holtvogt
+ * @author Bjoern Holtvogt
  *
  */
 public class IOC implements Comparable<IOC> {
@@ -24,7 +24,6 @@ public class IOC implements Comparable<IOC> {
 	 *                            determined the IOC country code.
 	 */
 	public IOC(final String iocID, final String iocCode, final String countryName, final String yearOfDetermination) {
-
 		this.iocID = iocID;
 		this.iocCode = iocCode;
 		this.countryName = countryName;
@@ -37,7 +36,6 @@ public class IOC implements Comparable<IOC> {
 	 * @return IOC ID.
 	 */
 	public String getIocID() {
-
 		return iocID;
 	}
 
@@ -47,7 +45,6 @@ public class IOC implements Comparable<IOC> {
 	 * @param iocID Unique IOC ID.
 	 */
 	public void setIocID(final String iocID) {
-
 		this.iocID = iocID;
 	}
 
@@ -57,7 +54,6 @@ public class IOC implements Comparable<IOC> {
 	 * @return IOC code.
 	 */
 	public String getIocCode() {
-
 		return iocCode;
 	}
 
@@ -67,7 +63,6 @@ public class IOC implements Comparable<IOC> {
 	 * @param iocCode Unique IOC code.
 	 */
 	public void setIocCode(final String iocCode) {
-
 		this.iocCode = iocCode;
 	}
 
@@ -77,7 +72,6 @@ public class IOC implements Comparable<IOC> {
 	 * @return Country name.
 	 */
 	public String getCountryName() {
-
 		return countryName;
 	}
 
@@ -87,7 +81,6 @@ public class IOC implements Comparable<IOC> {
 	 * @param countryName Unique country name.
 	 */
 	public void setCountryName(final String countryName) {
-
 		this.countryName = countryName;
 	}
 
@@ -97,7 +90,6 @@ public class IOC implements Comparable<IOC> {
 	 * @return Year of determination.
 	 */
 	public String getYearOfDetermination() {
-
 		return yearOfDetermination;
 	}
 
@@ -108,13 +100,11 @@ public class IOC implements Comparable<IOC> {
 	 *                            determined the IOC country code.
 	 */
 	public void setYearOfDetermination(final String yearOfDetermination) {
-
 		this.yearOfDetermination = yearOfDetermination;
 	}
 
 	@Override
 	public int compareTo(final IOC ioc) {
-
 		if (Integer.valueOf(this.getYearOfDetermination()) > Integer.valueOf(ioc.getYearOfDetermination())) {
 			return 1;
 		} else if (Integer.valueOf(this.getYearOfDetermination()) < Integer.valueOf(ioc.getYearOfDetermination())) {
@@ -132,7 +122,6 @@ public class IOC implements Comparable<IOC> {
 
 	@Override
 	public int hashCode() {
-
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((countryName == null) ? 0 : countryName.hashCode());
@@ -143,7 +132,6 @@ public class IOC implements Comparable<IOC> {
 
 	@Override
 	public boolean equals(final Object obj) {
-
 		if (this == obj)
 			return true;
 		if (obj == null)
